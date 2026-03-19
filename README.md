@@ -65,5 +65,20 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 
 ## FAQ
 
-- Why is the script obfuscated?
-This is to prevent I-Ready's workers from figuring out how we work and patching it.
+**Why is the script obfuscated?**  
+The script may be obfuscated to protect internal logic. It is still intended to run normally in the browser without modifying platform behavior.
+
+**Does this modify I-Ready Pro or its servers?**  
+No. The script operates on the client side only and does not modify server data or backend systems. It interacts with data that is already visible in the browser.
+
+**Is this allowed to use?**  
+Use depends on your school or organization's rules. This project does not bypass security or access private systems, so responsibility for usage is up to the user.
+
+**Why does it only work on I-Ready Pro?**  
+I-Ready Pro uses different structures and features compared to standard I-Ready. This script is built specifically around pro to re-add things from standard I-ready and make it better in general.
+
+**Will this break after updates?**  
+It can. If I-Ready Pro changes its internal structure, selectors, or response formats, parts of the script may stop working and may require updates.
+
+**Do I need Tampermonkey to use it?**  
+No. You can use it either as a Tampermonkey userscript or directly in the browser console.
