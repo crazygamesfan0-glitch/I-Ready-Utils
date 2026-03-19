@@ -53,7 +53,7 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 
 3. Go to the Console tab
 
-4. Paste the script
+4. Paste the script you want, e.g [games.js](https://raw.githubusercontent.com/crazygamesfan0-glitch/I-Ready-Utils/refs/heads/main/games.js)
 
 5. Press Enter
 
