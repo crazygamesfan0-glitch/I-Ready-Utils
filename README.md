@@ -8,18 +8,15 @@
 
 ## Overview
 
-I-Ready Utils is a Tampermonkey-compatible and console-compatible script designed to interact with features available in I-Ready Pro.
+I-Ready Utils is a Tampermonkey-compatible and console-compatible script designed to enhance interaction with features available in I-Ready Pro.
 
-It focuses on adding useful non-distracting features.
+The goal of this project is to provide simple, useful, and non-distracting utilities.
 
 ## Features
 
-- Tampermonkey userscript support
-- Console script support (DevTools)
-- Works only with I-Ready Pro
-- Lightweight and easy to run
-- Designed for inspectable browser data only
-
+- Tampermonkey userscript support  
+- Console script support via browser DevTools  
+- Lightweight and fast execution  
 ## Compatibility
 
 | Platform | Supported |
@@ -33,27 +30,33 @@ It focuses on adding useful non-distracting features.
 
 ### Tampermonkey
 
-1. Install Tampermonkey from:
-   - https://www.tampermonkey.net/
+1. Install Tampermonkey  
+   https://www.tampermonkey.net/
 
-2. Open the Tampermonkey dashboard
+2. Open the script file in the repository
 
-3. Create a new userscript
+3. Click the Raw button on GitHub
 
-4. Paste the script.js file into the editor
+4. Tampermonkey will prompt installation
 
-5. Save the script
+5. Click Install
 
 6. Open I-Ready Pro and refresh the page
 
-### Console Script
+## Console Script
 
 1. Open I-Ready Pro in your browser
 
-2. Open Developer Tools
-   - Windows: F12 or Ctrl + Shift + I
-   - Mac: Cmd + Option + I
+2. Open Developer Tools  
+   Windows: F12 or Ctrl + Shift + I  
+   Mac: Cmd + Option + I  
 
 3. Go to the Console tab
 
-4. Paste the script and press Enter
+4. Paste the script
+
+5. Press Enter
+
+## Usage Notes
+
+- Runs entirely in the browser environment  
