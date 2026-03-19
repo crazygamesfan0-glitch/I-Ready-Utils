@@ -33,7 +33,7 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 1. Install Tampermonkey  
    https://www.tampermonkey.net/
 
-2. Open the script file in the repository
+2. Open the script file you want in the repository
 
 3. Click the Raw button on GitHub
 
@@ -56,6 +56,8 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 4. Paste the script
 
 5. Press Enter
+
+6. Close Devtools (To stop debugger)
 
 ## Usage Notes
 
