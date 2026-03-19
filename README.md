@@ -61,4 +61,9 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 
 ## Usage Notes
 
-- Runs entirely in the browser environment  
+- Runs entirely in the browser environment
+
+## FAQ
+
+- Why is the script obfuscated?
+This is to prevent I-Ready's workers from figuring out how we work and patching it.
