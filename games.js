@@ -1,8 +1,8 @@
 // ==UserScript==
 // @name         i-Ready Pro Utils - Games
 // @namespace    http://tampermonkey.net/
-// @version      2.2
-// @description  Re-add i-Ready Games to i-ready pro (NEW UPDATE, ANTICHEAT ADDED!)
+// @version      2.4
+// @description  Re-add i-Ready Games to i-ready pro!
 // @author       THEMPGUYAlt
 // @match        https://login.i-ready.com/mspro/dashboard/home
 // @match        https://login.i-ready.com/*
@@ -39,7 +39,6 @@
         },
         
         setupIntegrityChecks() {
-            // Periodic memory signature checks (data tampering only)
             setInterval(() => {
                 if (!this.isActive) this.performIntegrityCheck();
             }, 5000);
@@ -91,10 +90,10 @@
         },
         
         validateTransaction(amount, reason, timestamp) {
-            if (amount > 100) return false;      // can't earn more than 100 at once
-            if (amount < -100) return false;     // can't spend more than 100 at once
-            if (timestamp < this.startTime) return false; // can't be before session
-            if (timestamp > Date.now() + 1000) return false; // can't be future
+            if (amount > 100) return false;
+            if (amount < -100) return false;
+            if (timestamp < this.startTime) return false;
+            if (timestamp > Date.now() + 1000) return false;
             return true;
         },
         
@@ -217,7 +216,6 @@
             document.body.style.pointerEvents = 'none';
             overlay.style.pointerEvents = 'all';
             
-            // Re‑apply if someone tries to remove it
             setInterval(() => {
                 if (!document.getElementById('iready-anticheat-overlay')) {
                     document.body.appendChild(overlay.cloneNode(true));
@@ -230,6 +228,7 @@
         STORAGE_KEY: 'iready_coins_v3',
         HISTORY_KEY: 'iready_history_v3',
         SIGNATURE_KEY: 'iready_signature_v3',
+        WIDGET_HIDDEN_KEY: 'iready_widget_hidden',
         MIN_SCORE: 70,
         BASE_REWARD: 10,
         MAX_REWARD: 70,
@@ -372,9 +371,10 @@
             this.coins = this.loadCoins();
             this.history = this.loadHistory();
             this.signature = this.loadSignature();
+            this.widgetHidden = this.loadWidgetHidden(); // load hidden state
             this.seenResponses = new Set();
             this.widget = null;
-            this.isDragging = false;          // used to avoid false style checks (if any)
+            this.isDragging = false;
             if (!ANTI_CHEAT.isActive) {
                 this.verifyIntegrity();
                 this.init();
@@ -404,6 +404,20 @@
             } catch {
                 return '';
             }
+        }
+
+        loadWidgetHidden() {
+            try {
+                return localStorage.getItem(CONFIG.WIDGET_HIDDEN_KEY) === 'true';
+            } catch {
+                return false;
+            }
+        }
+
+        saveWidgetHidden() {
+            try {
+                localStorage.setItem(CONFIG.WIDGET_HIDDEN_KEY, this.widgetHidden);
+            } catch (e) {}
         }
 
         saveCoins() {
@@ -517,6 +531,29 @@
                 const reward = this.calculateReward(score);
                 this.addCoins(reward, `Lesson ${score}%`, score);
             }
+        }
+
+        // === CTRL+H TOGGLE WIDGET ===
+        setupKeyboardShortcut() {
+            document.addEventListener('keydown', (e) => {
+                // Ctrl+H (case-insensitive)
+                if (e.ctrlKey && e.key.toLowerCase() === 'h') {
+                    e.preventDefault(); // prevent browser history panel
+                    this.toggleWidgetVisibility();
+                }
+            });
+        }
+
+        toggleWidgetVisibility() {
+            if (!this.widget) return;
+            if (this.widget.style.display === 'none') {
+                this.widget.style.display = 'flex';
+                this.widgetHidden = false;
+            } else {
+                this.widget.style.display = 'none';
+                this.widgetHidden = true;
+            }
+            this.saveWidgetHidden();
         }
 
         // === GAME CENTER MODAL ===
@@ -682,6 +719,11 @@
                 transition: box-shadow 0.2s;
                 backdrop-filter: blur(4px);
             `;
+            
+            // Apply initial hidden state
+            if (this.widgetHidden) {
+                widget.style.display = 'none';
+            }
             
             const coinSpan = document.createElement('span');
             coinSpan.id = 'iready-coin-display';
@@ -906,6 +948,7 @@
             }
             
             this.interceptNetwork();
+            this.setupKeyboardShortcut(); // <-- ADDED
             window._ireadyCoinSystem = this;
             window.ANTI_CHEAT = ANTI_CHEAT;
             window.closeModalWithAnimation = closeModalWithAnimation;
