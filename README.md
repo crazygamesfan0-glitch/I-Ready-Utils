@@ -81,4 +81,4 @@ It can. If I-Ready Pro changes its internal structure, selectors, or response fo
 No. You can use it either as a Tampermonkey userscript or directly in the browser console.
 
 **How do I hide the UI?**
-Ctrl+H but if you for some reason want to toggle showing/hiding it, it's Ctrl+H :>
+Ctrl+H, but if you for some reason want to toggle showing/hiding it, it's Ctrl+H :>
