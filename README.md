@@ -1,22 +1,21 @@
 # I-Ready Utils
 
+![GitHub Repo stars](https://img.shields.io/github/stars/crazygamesfan0-glitch/I-Ready-Utils?style=flat)
+![GitHub last commit](https://img.shields.io/github/last-commit/crazygamesfan0-glitch/I-Ready-Utils?style=flat)
 ![Tampermonkey](https://img.shields.io/badge/Tampermonkey-Compatible-orange)
 ![Platform](https://img.shields.io/badge/Platform-Web-blue)
 ![License](https://img.shields.io/badge/License-GPLv3-green)
 
-> WARNING: This script only works with I-Ready Pro. It does not work with standard I-Ready.
+## WARNING
+
+THIS SCRIPT IS FOR I-READY PRO ONLY. IT WILL NOT WORK ON STANDARD I-READY. USE AT YOUR OWN RISK.
 
 ## Overview
 
-I-Ready Utils is a Tampermonkey-compatible and console-compatible script designed to enhance interaction with features available in I-Ready Pro.
+I-Ready Utils is a userscript that runs in the browser and adds small utilities to I-Ready Pro.
 
-The goal of this project is to provide simple, useful, and non-distracting utilities.
+It can be used with Tampermonkey or directly in the browser console.
 
-## Features
-
-- Tampermonkey userscript support  
-- Console script support via browser DevTools  
-- Lightweight and fast execution  
 ## Compatibility
 
 | Platform | Supported |
@@ -24,61 +23,60 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 | I-Ready Pro | Yes |
 | Standard I-Ready | No |
 | Mobile apps | No |
-| Offline usage | No |
+| Offline | No |
 
 ## Installation
 
 ### Tampermonkey
 
 1. Install Tampermonkey  
-   https://www.tampermonkey.net/
+https://www.tampermonkey.net/
 
-2. Open the script file you want in the repository
+2. Open the script file in this repository
 
-3. Click the Raw button on GitHub
+3. Click Raw
 
-4. Tampermonkey will prompt installation
+4. Tampermonkey will prompt install
 
 5. Click Install
 
-6. Open I-Ready Pro and refresh the page
+6. Open I-Ready Pro
 
-## Console Script
+### Console
 
-1. Open I-Ready Pro in your browser
+1. Open I-Ready Pro
 
-2. Open Developer Tools  
-   Windows: F12 or Ctrl + Shift + I  
-   Mac: Cmd + Option + I  
+2. Open DevTools  
+Windows: F12 or Ctrl + Shift + I  
+Mac: Cmd + Option + I  
 
-3. Go to the Console tab
+3. Go to Console
 
-4. Paste the script you want, e.g [games.js](https://raw.githubusercontent.com/crazygamesfan0-glitch/I-Ready-Utils/refs/heads/main/games.js)
+4. Paste a script such as  
+https://raw.githubusercontent.com/crazygamesfan0-glitch/I-Ready-Utils/refs/heads/main/games.js
 
 5. Press Enter
 
-6. Close Devtools (To stop debugger)
+## Notes
 
-## Usage Notes
-
-- Runs entirely in the browser environment
+- Runs fully in the browser
+- No server changes
+- May break if I-Ready Pro updates
+- Works best on desktop browsers
 
 ## FAQ
 
-**Does this modify I-Ready Pro or its servers?**  
-No. The script operates on the client side only and does not modify server data or backend systems. It interacts with data that is already visible in the browser.
+**Does this modify I-Ready Pro?**  
+No. It only runs in the browser.
 
-**Is this allowed to use?**  
-Use depends on your school or organization's rules. This project does not bypass security or access private systems, so responsibility for usage is up to the user.
+**Do I need Tampermonkey?**  
+No, but it is recommended.
 
-**Why does it only work on I-Ready Pro?**  
-I-Ready Pro uses different structures and features compared to standard I-Ready. This script is built specifically around pro to re-add things from standard I-ready and make it better in general.
+**Why only I-Ready Pro?**  
+The script is built for the Pro version layout and structure.
 
-**Will this break after updates?**  
-It can. If I-Ready Pro changes its internal structure, selectors, or response formats, parts of the script may stop working and may require updates.
+**Will it break?**  
+It can if the site updates.
 
-**Do I need Tampermonkey to use it?**  
-No. You can use it either as a Tampermonkey userscript or directly in the browser console.
-
-**How do I hide the UI?**
-Ctrl+H, but if you for some reason want to toggle showing/hiding it, it's Ctrl+H :>
+**How do I hide the UI?**  
+Press Ctrl + H
