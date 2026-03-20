@@ -65,9 +65,6 @@ The goal of this project is to provide simple, useful, and non-distracting utili
 
 ## FAQ
 
-**Why is the script obfuscated?**  
-The script may be obfuscated to protect internal logic. It is still intended to run normally in the browser without modifying platform behavior.
-
 **Does this modify I-Ready Pro or its servers?**  
 No. The script operates on the client side only and does not modify server data or backend systems. It interacts with data that is already visible in the browser.
 
